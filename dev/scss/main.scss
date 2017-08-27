@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+$white: #fff;
+$black: #000;
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $black;
+  color: $white;
+  font-family: 'Roboto';
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+
+.Hero {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://unsplash.it/1000/800?image=974");
+  animation-name: none;
+  &.is-shrinking {
+    animation: shrink 1.5s forwards;
+  }
+  &.is-growing {
+    animation: grow 1.5s;
+  }
+}
+
+.Button {
+  background-color: #000;
+  border-radius: 4px;
+  padding: 1em 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -52px;
+  margin-top: -24px;
+  &, &:visited, &:hover, &:active {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+@keyframes shrink {
+  from {
+    -webkit-clip-path: circle(100%);
+    clip-path: circle(100%);
+    opacity: 1;
+  }
+  to {
+    -webkit-clip-path: circle(0%);
+    clip-path: circle(0%);
+    opacity: 0;
+  }
+}
+
+@keyframes grow {
+  from {
+    -webkit-clip-path: circle(0%);
+    clip-path: circle(0%);
+    opacity: 0;
+  }
+  to {
+    -webkit-clip-path: circle(100%);
+    clip-path: circle(100%);
+    opacity: 1;
+  }
+}
