@@ -49,23 +49,17 @@ gulp.task('js', function() {
 gulp.task('watch', ['sass'], function() {
     watchify.args.debug = true;
     var watcher = watchify(browserify('./dev/js/script.js', watchify.args));
-
     bundle(watcher);
-
     watcher.on('update', function() {
         bundle(watcher);
     });
-
     watcher.on('log', gutil.log);
-
     browserSync.init({
         server: true,
         logFileChanges: false
     });
-
     gulp.watch(filesToWatch.scss, ['sass']);
     gulp.watch('*.html', browserSync.reload);
-
 });
 
 gulp.task('sass', function () {
